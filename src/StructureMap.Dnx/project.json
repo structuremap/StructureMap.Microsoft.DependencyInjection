@@ -1,0 +1,17 @@
+﻿{
+  "version": "0.1.0-*",
+  "description": "StructureMap.Dnx",
+  "authors": [ "khellang" ],
+  "tags": [ "StructureMap", "DNX", "Dependency Injection", "DI", "IoC" ],
+  "projectUrl": "https://github.com/khellang/StructureMap.Dnx",
+  "licenseUrl": "https://github.com/khellang/StructureMap.Dnx/blob/master/LICENSE",
+
+  "dependencies": {
+    "structuremap": "3.1.6.186",
+    "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta6"
+  },
+
+  "frameworks": {
+    "dnx451": { }
+  }
+}

@@ -1,0 +1,37 @@
+﻿using System;
+using Microsoft.Framework.DependencyInjection;
+
+namespace StructureMap.Dnx
+{
+    internal sealed class StructureMapServiceScopeFactory : IServiceScopeFactory
+    {
+        public StructureMapServiceScopeFactory(IContainer container)
+        {
+            Container = container;
+        }
+
+        private IContainer Container { get; }
+
+        public IServiceScope CreateScope()
+        {
+            var nestedContainer = Container.GetNestedContainer();
+
+            return new StructureMapServiceScope(nestedContainer);
+        }
+
+        private class StructureMapServiceScope : IServiceScope
+        {
+            public StructureMapServiceScope(IContainer container)
+            {
+                Container = container;
+                ServiceProvider = container.GetInstance<IServiceProvider>();
+            }
+
+            private IContainer Container { get; }
+
+            public IServiceProvider ServiceProvider { get; }
+
+            public void Dispose() => Container.Dispose();
+        }
+    }
+}
