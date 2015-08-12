@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StructureMap.Dnx
+namespace StructureMap
 {
     internal sealed class StructureMapServiceProvider : IServiceProvider
     {

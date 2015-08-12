@@ -4,7 +4,7 @@ using Microsoft.Framework.DependencyInjection;
 using StructureMap.Configuration.DSL.Expressions;
 using StructureMap.Pipeline;
 
-namespace StructureMap.Dnx
+namespace StructureMap
 {
     internal static class HelperExtensions
     {

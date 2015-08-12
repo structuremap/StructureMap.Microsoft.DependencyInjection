@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Framework.DependencyInjection;
 
-namespace StructureMap.Dnx
+namespace StructureMap
 {
     internal sealed class StructureMapServiceScopeFactory : IServiceScopeFactory
     {

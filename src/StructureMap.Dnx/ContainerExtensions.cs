@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Framework.DependencyInjection;
 
-namespace StructureMap.Dnx
+namespace StructureMap
 {
     public static class ContainerExtensions
     {

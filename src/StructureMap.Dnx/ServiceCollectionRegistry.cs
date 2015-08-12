@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using Microsoft.Framework.DependencyInjection;
 using StructureMap.Configuration.DSL;
 
-namespace StructureMap.Dnx
+namespace StructureMap
 {
     internal sealed class ServiceCollectionRegistry : Registry
     {
