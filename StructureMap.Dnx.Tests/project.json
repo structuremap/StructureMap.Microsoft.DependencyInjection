@@ -1,0 +1,22 @@
+﻿{
+    "version": "0.2.1-*",
+
+    "commands": {
+        "test": "xunit.runner.dnx"
+    },
+
+    "dependencies": {
+        "Microsoft.Framework.DependencyInjection": "1.0.0-beta6",
+        "StructureMap.Dnx": "0.2.1",
+        "xunit": "2.1.0-beta4-build3109",
+        "xunit.runner.dnx": "2.1.0-beta4-build134"
+    },
+
+    "frameworks": {
+        "dnx451": {
+            "frameworkAssemblies": {
+                "System.Linq": "4.0.0.0"
+            }
+        }
+    }
+}
