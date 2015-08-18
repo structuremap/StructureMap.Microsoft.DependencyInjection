@@ -6,7 +6,9 @@ namespace StructureMap
     {
         public StructureMapServiceProvider(IContainer container)
         {
-            Container = container;
+            // We start out with a nested container here in order to always get
+            // the same instance for "scoped" resolutions from the top-level container.
+            Container = container.GetNestedContainer();
         }
 
         private IContainer Container { get; }
