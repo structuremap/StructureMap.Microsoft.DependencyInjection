@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using Microsoft.Framework.DependencyInjection;
 using StructureMap.Configuration.DSL;
+using StructureMap.Pipeline;
 
 namespace StructureMap
 {
@@ -10,8 +11,8 @@ namespace StructureMap
     {
         public ServiceCollectionRegistry(IEnumerable<ServiceDescriptor> descriptors)
         {
-            For<IServiceProvider>().Use<StructureMapServiceProvider>();
-            For<IServiceScopeFactory>().Use<StructureMapServiceScopeFactory>();
+            For<IServiceProvider>().LifecycleIs(Lifecycles.Container).Use<StructureMapServiceProvider>();
+            For<IServiceScopeFactory>().LifecycleIs(Lifecycles.Container).Use<StructureMapServiceScopeFactory>();
 
             Register(descriptors);
         }

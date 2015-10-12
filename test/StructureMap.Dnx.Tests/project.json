@@ -6,8 +6,8 @@
     },
 
     "dependencies": {
-        "Microsoft.Framework.DependencyInjection": "1.0.0-beta7",
-        "StructureMap.Dnx": "0.2.2",
+        "Microsoft.Framework.DependencyInjection.Tests": "0.1-alpha-*",
+        "StructureMap.Dnx": "0.3.0-*",
         "xunit": "2.1.0-*",
         "xunit.runner.dnx": "2.1.0-*"
     },
