@@ -11,8 +11,8 @@ namespace StructureMap
     {
         public ServiceCollectionRegistry(IEnumerable<ServiceDescriptor> descriptors)
         {
-            For<IServiceProvider>().LifecycleIs(Lifecycles.Transient).Use<StructureMapServiceProvider>();
-            For<IServiceScopeFactory>().LifecycleIs(Lifecycles.Transient).Use<StructureMapServiceScopeFactory>();
+            For<IServiceProvider>().LifecycleIs(Lifecycles.Container).Use<StructureMapServiceProvider>();
+            For<IServiceScopeFactory>().LifecycleIs(Lifecycles.Container).Use<StructureMapServiceScopeFactory>();
 
             Register(descriptors);
         }

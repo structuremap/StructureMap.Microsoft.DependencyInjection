@@ -22,7 +22,7 @@ namespace StructureMap
                 case ServiceLifetime.Singleton:
                     return instance.LifecycleIs(Lifecycles.Singleton);
                 case ServiceLifetime.Scoped:
-                    return instance.LifecycleIs(Lifecycles.Transient);
+                    return instance.LifecycleIs(Lifecycles.Container);
                 case ServiceLifetime.Transient:
                     return instance.LifecycleIs(Lifecycles.Unique);
                 default:

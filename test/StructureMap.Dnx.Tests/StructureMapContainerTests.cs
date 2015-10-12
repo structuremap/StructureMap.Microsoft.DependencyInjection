@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.Framework.DependencyInjection.Tests;
 using Microsoft.Framework.DependencyInjection.Tests.Fakes;
-using StructureMap.Pipeline;
 
 namespace StructureMap.Dnx.Tests
 {
@@ -9,7 +8,7 @@ namespace StructureMap.Dnx.Tests
     {
         protected override IServiceProvider CreateContainer()
         {
-            var container = new Container(x => x.TransientTracking = TransientTracking.ExplicitReleaseMode);
+            var container = new Container();
 
             container.Populate(TestServices.DefaultServices());
 
