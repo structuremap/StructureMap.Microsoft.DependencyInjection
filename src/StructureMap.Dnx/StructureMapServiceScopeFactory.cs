@@ -14,9 +14,7 @@ namespace StructureMap
 
         public IServiceScope CreateScope()
         {
-            var nestedContainer = Container.GetNestedContainer();
-
-            return new StructureMapServiceScope(nestedContainer);
+            return new StructureMapServiceScope(Container.GetNestedContainer());
         }
 
         private class StructureMapServiceScope : IServiceScope

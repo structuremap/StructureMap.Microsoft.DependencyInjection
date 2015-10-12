@@ -11,8 +11,8 @@
     },
 
     "dependencies": {
-        "structuremap": "3.1.6.186",
-        "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta7"
+        "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta7",
+        "structuremap": "3.2.0.221-alpha"
     },
 
     "frameworks": {
