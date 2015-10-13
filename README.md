@@ -4,9 +4,13 @@ Adds DNX support for StructureMap
 
 ## Installation
 
-> Install-Package StructureMap.Dnx
+Add `StructureMap.Dnx` to your **project.json**:
 
-That's it! :grin::+1:
+```json
+"dependencies": {
+  "StructureMap.Dnx": "<version>"
+}
+```
 
 ## Usage
 
