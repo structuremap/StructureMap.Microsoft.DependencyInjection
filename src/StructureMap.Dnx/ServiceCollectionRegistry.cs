@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Microsoft.Framework.DependencyInjection;
-using StructureMap.Configuration.DSL;
 using StructureMap.Pipeline;
 
 namespace StructureMap
