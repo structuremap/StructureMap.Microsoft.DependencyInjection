@@ -15,8 +15,6 @@ namespace StructureMap
 
         public static GenericFamilyExpression LifecycleIs(this GenericFamilyExpression instance, ServiceLifetime lifetime)
         {
-            // TODO: Verify that the lifetimes are correct. Especially the scoped one.
-
             switch (lifetime)
             {
                 case ServiceLifetime.Singleton:

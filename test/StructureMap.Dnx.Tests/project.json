@@ -1,5 +1,5 @@
 ﻿{
-    "version": "0.2.2-*",
+    "version": "0.4.0-alpha",
 
     "commands": {
         "test": "xunit.runner.dnx"
@@ -7,7 +7,7 @@
 
     "dependencies": {
         "Microsoft.Framework.DependencyInjection.Tests": "0.1-alpha-*",
-        "StructureMap.Dnx": "0.3.0-*",
+        "StructureMap.Dnx": "0.4.0-alpha",
         "xunit": "2.1.0-*",
         "xunit.runner.dnx": "2.1.0-*"
     },
