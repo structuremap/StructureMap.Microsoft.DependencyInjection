@@ -12,7 +12,7 @@
 
     "dependencies": {
         "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8",
-        "structuremap": "4.0.0.266-alpha"
+        "structuremap": "4.0.0.279-alpha"
     },
 
     "frameworks": {
