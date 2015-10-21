@@ -1,5 +1,5 @@
 ﻿{
-    "version": "0.4.0-alpha",
+    "version": "0.4.0-alpha2",
     "description": "StructureMap.Dnx",
     "authors": [ "khellang" ],
     "tags": [ "StructureMap", "DNX", "Dependency Injection", "DI", "IoC" ],
@@ -11,8 +11,8 @@
     },
 
     "dependencies": {
-        "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta7",
-        "structuremap": "4.0.0.266-alpha"
+        "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8",
+        "structuremap": "4.0.0.279-alpha"
     },
 
     "frameworks": {
