@@ -21,7 +21,7 @@ It's used to populate a StructureMap container using a set of `ServiceDescriptor
 
 ```csharp
 using System;
-using Microsoft.Framework.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using StructureMap;
 
 public class Startup
