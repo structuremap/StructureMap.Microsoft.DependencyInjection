@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Microsoft.Framework.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace StructureMap
 {

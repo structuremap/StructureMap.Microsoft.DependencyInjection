@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.Framework.DependencyInjection;
+using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 using StructureMap.Configuration.DSL.Expressions;
 using StructureMap.Pipeline;
 
@@ -10,7 +11,7 @@ namespace StructureMap
     {
         public static bool IsGenericEnumerable(this Type type)
         {
-            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IEnumerable<>);
+            return type.GetTypeInfo().IsGenericType && type.GetGenericTypeDefinition() == typeof(IEnumerable<>);
         }
 
         public static GenericFamilyExpression LifecycleIs(this GenericFamilyExpression instance, ServiceLifetime lifetime)
