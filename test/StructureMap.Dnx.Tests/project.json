@@ -6,7 +6,6 @@
     },
 
     "dependencies": {
-        "Microsoft.Framework.DependencyInjection.Tests": "",
         "StructureMap.Dnx": "",
         "xunit": "2.1.0-*",
         "xunit.runner.aspnet": "2.0.0-aspnet-beta8-*"
