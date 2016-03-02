@@ -1,33 +1,24 @@
 ﻿{
-    "version": "0.4.0-alpha4",
-    "description": "StructureMap.Dnx",
-    "authors": [ "khellang" ],
-    "tags": [ "StructureMap", "DNX", "Dependency Injection", "DI", "IoC" ],
-    "projectUrl": "https://github.com/khellang/StructureMap.Dnx",
-    "licenseUrl": "https://github.com/khellang/StructureMap.Dnx/blob/master/LICENSE",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/khellang/StructureMap.Dnx"
-    },
+  "version": "0.4.0-rc1",
+  "description": "StructureMap.Dnx",
+  "authors": [ "khellang" ],
+  "tags": [ "StructureMap", "DNX", "Dependency Injection", "DI", "IoC" ],
+  "projectUrl": "https://github.com/khellang/StructureMap.Dnx",
+  "licenseUrl": "https://github.com/khellang/StructureMap.Dnx/blob/master/LICENSE",
 
-    "dependencies": {
-        "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
-        "structuremap": "4.0.0.60000-alpha"
-    },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khellang/StructureMap.Dnx"
+  },
 
-    "frameworks": {
-        "net451": { },
-        "dotnet5.4": {
-            "dependencies": {
-                "System.Runtime": "4.0.21-beta-23516",
-                "System.Reflection": "4.1.0-beta-23516"
-            }
-        },
-        "netcore50": {
-            "dependencies": {
-                "System.Runtime": "4.0.21-beta-23516",
-                "System.Reflection": "4.1.0-beta-23516"
-            }
-        }
-    }
+  "dependencies": {
+    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+    "structuremap": "4.1.0.361"
+  },
+
+  "frameworks": {
+    "net451": { },
+    "dotnet5.4": { },
+    "netcore50": { }
+  }
 }
