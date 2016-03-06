@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1AAD948C-6BBE-4334-BFF2-AA5F16F63845}"
 EndProject
@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8037CE7A-0
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "StructureMap.Dnx.Tests", "test\StructureMap.Dnx.Tests\StructureMap.Dnx.Tests.xproj", "{2B3D64C5-CA4D-41E5-AF3A-BA90AB80EB60}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "StructureMap.Dnx.Tests.Internal", "test\StructureMap.Dnx.Tests.Internal\StructureMap.Dnx.Tests.Internal.xproj", "{D899CE66-EDCB-4062-B0B3-018F575535CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{2B3D64C5-CA4D-41E5-AF3A-BA90AB80EB60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B3D64C5-CA4D-41E5-AF3A-BA90AB80EB60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B3D64C5-CA4D-41E5-AF3A-BA90AB80EB60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D899CE66-EDCB-4062-B0B3-018F575535CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D899CE66-EDCB-4062-B0B3-018F575535CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D899CE66-EDCB-4062-B0B3-018F575535CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D899CE66-EDCB-4062-B0B3-018F575535CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,5 +44,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D09D9E47-E9B7-4446-90AE-48AE3358C880} = {1AAD948C-6BBE-4334-BFF2-AA5F16F63845}
 		{2B3D64C5-CA4D-41E5-AF3A-BA90AB80EB60} = {8037CE7A-020C-48D2-9C7E-BBEB669E19D7}
+		{D899CE66-EDCB-4062-B0B3-018F575535CF} = {8037CE7A-020C-48D2-9C7E-BBEB669E19D7}
 	EndGlobalSection
 EndGlobal
