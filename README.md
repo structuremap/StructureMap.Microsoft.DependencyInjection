@@ -1,4 +1,4 @@
-# StructureMap.Dnx
+# StructureMap.Dnx [![Build status](https://ci.appveyor.com/api/projects/status/tpk77374afp3dk8v?svg=true)](https://ci.appveyor.com/project/khellang/structuremap-dnx)
 
 Adds DNX support for StructureMap
 
