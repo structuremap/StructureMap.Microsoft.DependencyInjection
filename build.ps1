@@ -94,17 +94,17 @@ Write-Host "Build number: " $env:DNX_BUILD_VERSION
 Get-ChildItem -Path .\src -Filter *.xproj -Recurse | ForEach-Object { Pack-Projects $_.DirectoryName $env:CONFIGURATION }
 
 # Test
-Get-ChildItem -Path .\test -Filter *.xproj -Recurse | ForEach-Object {
+Get-ChildItem -Path .\test -Filter *.xproj -Exclude StructureMap.Dnx.Tests.Internal.xproj -Recurse | ForEach-Object {
   Push-Location $_.DirectoryName
   Test-Projects $_.DirectoryName
   Pop-Location
 }
 
 # Switch to Core CLR
-#dnvm use $dnxVersion -r CoreCLR
+dnvm use $dnxVersion -r CoreCLR
 
 # Test again
-Get-ChildItem -Path .\test -Filter *Tests.xproj -Recurse | ForEach-Object {
+Get-ChildItem -Path .\test -Filter *.xproj -Exclude StructureMap.Dnx.Tests.Internal.xproj -Recurse | ForEach-Object {
   Push-Location $_.DirectoryName
   Test-Projects $_.DirectoryName
   Pop-Location
