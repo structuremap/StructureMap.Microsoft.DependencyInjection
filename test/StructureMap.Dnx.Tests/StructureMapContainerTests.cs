@@ -1,19 +1,18 @@
-﻿//using System;
-//using Microsoft.Framework.DependencyInjection.Tests;
-//using Microsoft.Framework.DependencyInjection.Tests.Fakes;
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Specification;
 
-//namespace StructureMap.Dnx.Tests
-//{
-//    TODO: Add this test back with Microsoft.Extensions.DependencyInjection.Specification.Tests
-//    public class StructureMapContainerTests : ScopingContainerTestBase
-//    {
-//        protected override IServiceProvider CreateContainer()
-//        {
-//            var container = new Container();
+namespace StructureMap.Dnx.Tests
+{
+    public class StructureMapContainerTests : DependencyInjectionSpecificationTests
+    {
+        protected override IServiceProvider CreateServiceProvider(IServiceCollection serviceCollection)
+        {
+            var container = new Container();
 
-//            container.Populate(TestServices.DefaultServices());
+            container.Populate(serviceCollection);
 
-//            return container.GetInstance<IServiceProvider>();
-//        }
-//    }
-//}
+            return container.GetInstance<IServiceProvider>();
+        }
+    }
+}

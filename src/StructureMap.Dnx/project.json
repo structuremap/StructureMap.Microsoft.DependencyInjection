@@ -1,5 +1,5 @@
 ﻿{
-  "version": "0.4.0-rc1-final",
+  "version": "0.4.0-rc2-final-*",
   "description": "StructureMap.Dnx",
   "authors": [ "khellang" ],
   "tags": [ "StructureMap", "DNX", "Dependency Injection", "DI", "IoC" ],
@@ -12,7 +12,7 @@
   },
 
   "dependencies": {
-    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-*",
     "structuremap": "4.1.0.361"
   },
 
@@ -20,7 +20,7 @@
     "net451": { },
     "dotnet5.4": {
       "dependencies": {
-        "System.Runtime": "4.0.21-beta-23516"
+        "System.Runtime": "4.1.0-*"
       }
     },
     "netcore50": { }

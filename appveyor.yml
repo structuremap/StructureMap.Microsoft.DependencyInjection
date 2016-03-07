@@ -1,6 +1,6 @@
 os: Visual Studio 2015
 
-version: 0.4.0-rc1-final-{build}
+version: 0.4.0-rc2-final-{build}
 configuration: Release
 cache: C:\Users\appveyor\.dnx\packages
 

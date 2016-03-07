@@ -1,13 +1,14 @@
 {
   "commands": {
-    "test": "xunit.runner.dnx"
+    "test": "xunit.runner.aspnet"
   },
 
   "dependencies": {
+    "Microsoft.Extensions.DependencyInjection.Specification.Tests": "1.0.0-*",
     "StructureMap.Dnx": { "target": "project" },
     "StructureMap.Dnx.Tests.Internal": { "target": "project" },
-    "xunit": "2.1.0-rc1-*",
-    "xunit.runner.dnx": "2.1.0-rc1-*"
+    "xunit": "2.1.0",
+    "xunit.runner.aspnet": "2.0.0-aspnet-rc2-*"
   },
 
   "frameworks": {

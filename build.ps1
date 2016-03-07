@@ -76,9 +76,11 @@ Remove-PathVariable "*Program Files\Microsoft DNX\DNVM*"
 # Make sure per-user DNVM is installed
 Install-Dnvm
 
+$env:DNX_UNSTABLE_FEED = "https://www.myget.org/F/aspnetcidev/api/v2"
+
 # Install DNX
-dnvm install $dnxVersion -r CoreCLR -NoNative
-dnvm install $dnxVersion -r CLR -NoNative
+dnvm install -u $dnxVersion -r CoreCLR -NoNative
+dnvm install -u $dnxVersion -r CLR -NoNative
 
 # Start with regular CLR
 dnvm use $dnxVersion -r CLR
