@@ -33,6 +33,21 @@ public class Startup
 
         var container = new Container();
         
+        // You can populate the container instance in one of two ways:
+        
+        // 1. Use StructureMap's `Configure` method and call
+        //    `Populate` on the `ConfigurationExpression`.
+        
+        container.Configure(config =>
+        {
+            // Register stuff in container, using the StructureMap APIs...
+
+            config.Populate(services);
+        });
+        
+        // 2. Call `Populate` directly on the container instance.
+        //    This will internally do a call to `Configure`.
+        
         // Register stuff in container, using the StructureMap APIs...
 
         // Here we populate the container using the service collection.
@@ -40,8 +55,8 @@ public class Startup
         // into the container with the appropriate lifetime.
         container.Populate(services);
 
-        // Make sure we return an IServiceProvider, 
-        // this makes DNX use the StructureMap container.
+        // Finally, make sure we return an IServiceProvider,this makes
+        // DNX use the StructureMap container to resolve its services.
         return container.GetInstance<IServiceProvider>();
     }
 }
