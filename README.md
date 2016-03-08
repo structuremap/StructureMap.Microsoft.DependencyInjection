@@ -55,7 +55,7 @@ public class Startup
         // into the container with the appropriate lifetime.
         container.Populate(services);
 
-        // Finally, make sure we return an IServiceProvider,this makes
+        // Finally, make sure we return an IServiceProvider. This makes
         // DNX use the StructureMap container to resolve its services.
         return container.GetInstance<IServiceProvider>();
     }
