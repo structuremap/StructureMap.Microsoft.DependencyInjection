@@ -32,6 +32,8 @@ public class Startup
         services.AddWhatever();
 
         var container = new Container();
+        
+        // Register stuff in container, using the StructureMap APIs...
 
         // Here we populate the container using the service collection.
         // This will register all services from the collection
