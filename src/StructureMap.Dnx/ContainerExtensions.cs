@@ -17,11 +17,18 @@ namespace StructureMap
         /// <param name="descriptors">The service descriptors.</param>
         public static void Populate(this IContainer container, IEnumerable<ServiceDescriptor> descriptors)
         {
-            container.Configure(config =>
-            {
-                config.Policies.ConstructorSelector<AspNetConstructorSelector>();
-                config.AddRegistry(new ServiceCollectionRegistry(descriptors));
-            });
+            container.Configure(config => config.Populate(descriptors));
+        }
+
+        /// <summary>
+        /// Populates the container using the specified service descriptors.
+        /// </summary>
+        /// <param name="config">The configuration.</param>
+        /// <param name="descriptors">The service descriptors.</param>
+        public static void Populate(this ConfigurationExpression config, IEnumerable<ServiceDescriptor> descriptors)
+        {
+            config.Policies.ConstructorSelector<AspNetConstructorSelector>();
+            config.AddRegistry(new ServiceCollectionRegistry(descriptors));
         }
 
         private class AspNetConstructorSelector : IConstructorSelector
