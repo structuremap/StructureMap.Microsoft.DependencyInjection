@@ -14,7 +14,7 @@
 
   "dependencies": {
     "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-*",
-    "structuremap": "4.1.0.361"
+    "structuremap": "4.1.2.386"
   },
 
   "frameworks": {
