@@ -4,12 +4,12 @@
   "description": "StructureMap.Dnx",
   "authors": [ "khellang" ],
   "tags": [ "StructureMap", "DNX", "Dependency Injection", "DI", "IoC" ],
-  "projectUrl": "https://github.com/khellang/StructureMap.Dnx",
-  "licenseUrl": "https://github.com/khellang/StructureMap.Dnx/blob/master/LICENSE",
+  "projectUrl": "https://github.com/structuremap/structuremap.dnx",
+  "licenseUrl": "https://github.com/structuremap/structuremap.dnx/blob/master/LICENSE",
 
   "repository": {
     "type": "git",
-    "url": "https://github.com/khellang/StructureMap.Dnx"
+    "url": "https://github.com/structuremap/structuremap.dnx"
   },
 
   "dependencies": {
