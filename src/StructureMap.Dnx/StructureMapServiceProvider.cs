@@ -1,8 +1,9 @@
 ﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace StructureMap
 {
-    internal sealed class StructureMapServiceProvider : IServiceProvider
+    internal sealed class StructureMapServiceProvider : IServiceProvider, ISupportRequiredService
     {
         public StructureMapServiceProvider(IContainer container)
         {
@@ -17,10 +18,15 @@ namespace StructureMap
             {
                 // Ideally we'd like to call TryGetInstance here as well,
                 // but StructureMap does't like it for some weird reason.
-                return Container.GetInstance(serviceType);
+                return GetRequiredService(serviceType);
             }
 
             return Container.TryGetInstance(serviceType);
+        }
+
+        public object GetRequiredService(Type serviceType)
+        {
+            return Container.GetInstance(serviceType);
         }
     }
 }
