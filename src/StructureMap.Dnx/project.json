@@ -18,7 +18,12 @@
   },
 
   "frameworks": {
-    "net451": { },
+    "net451": {
+      "frameworkAssemblies": {
+        "System.ComponentModel": { "type": "build" },
+        "System.Runtime": { "type": "build" }
+      }
+    },
     "dotnet5.4": {
       "dependencies": {
         "System.Runtime": "4.1.0-*"
