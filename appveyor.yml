@@ -2,7 +2,7 @@ os: Visual Studio 2015
 
 version: 0.4.0-rc2-{build}
 configuration: Release
-cache: C:\Users\appveyor\.dnx\packages
+cache: C:\Users\appveyor\.nuget\packages
 
 nuget:
   disable_publish_on_pr: true
