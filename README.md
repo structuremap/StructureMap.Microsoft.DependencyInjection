@@ -1,14 +1,16 @@
-# StructureMap.Dnx [![Build status](https://ci.appveyor.com/api/projects/status/tpk77374afp3dk8v?svg=true)](https://ci.appveyor.com/project/khellang/structuremap-dnx)
+# StructureMap.Microsoft.DependencyInjection [![Build status](https://ci.appveyor.com/api/projects/status/tpk77374afp3dk8v?svg=true)](https://ci.appveyor.com/project/khellang/structuremap-dnx)
 
-Adds DNX support for StructureMap
+(Formerly known as StructureMap.Dnx)
+
+Adds StructureMap support for [Microsoft.Extensions.DependencyInjection](https://github.com/aspnet/DependencyInjection)
 
 ## Installation
 
-Add `StructureMap.Dnx` to your **project.json**:
+Add `StructureMap.Microsoft.DependencyInjection` to your **project.json**:
 
 ```json
 "dependencies": {
-  "StructureMap.Dnx": "<version>"
+  "StructureMap.Microsoft.DependencyInjection": "<version>"
 }
 ```
 
