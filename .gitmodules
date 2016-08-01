@@ -1,3 +1,0 @@
-[submodule "lib/DependencyInjection"]
-	path = lib/DependencyInjection
-	url = git@github.com:aspnet/DependencyInjection.git

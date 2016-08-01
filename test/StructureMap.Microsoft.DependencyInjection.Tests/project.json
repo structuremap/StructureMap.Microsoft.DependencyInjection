@@ -2,8 +2,7 @@
   "dependencies": {
     "dotnet-test-xunit": "2.2.0-preview2-build1029",
     "Microsoft.Extensions.DependencyInjection.Specification.Tests": "1.0.0",
-    "Microsoft.NETCore.Platforms": "1.0.1",
-    "StructureMap.Dnx": { "target": "project" },
+    "StructureMap.Microsoft.DependencyInjection": { "target": "project" },
     "xunit": "2.2.0-beta2-build3300"
   },
 
@@ -17,11 +16,11 @@
         }
       },
       "dependencies": {
+        "Microsoft.NETCore.Platforms": "1.0.1",
         "xunit.runner.console": "2.1.0"
       }
     },
     "netcoreapp1.0": {
-      "imports": [ "dotnet" ],
       "dependencies": {
         "Microsoft.NETCore.App": {
           "version": "1.0.0",

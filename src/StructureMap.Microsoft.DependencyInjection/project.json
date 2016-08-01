@@ -1,0 +1,40 @@
+﻿{
+  "version": "1.0.0",
+
+  "description": "StructureMap.Microsoft.DependencyInjection",
+  "authors": ["khellang"],
+
+  "buildOptions": {
+    "warningsAsErrors": true,
+    "nowarn": ["CS1591"],
+    "xmlDoc": true
+  },
+
+  "packOptions": {
+    "tags": ["StructureMap", "Microsoft", "Dependency Injection", "DI", "IoC"],
+
+    "projectUrl": "https://github.com/structuremap/StructureMap.Microsoft.DependencyInjection",
+    "licenseUrl": "https://github.com/structuremap/StructureMap.Microsoft.DependencyInjection/blob/master/LICENSE",
+
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/structuremap/StructureMap.Microsoft.DependencyInjection"
+    }
+  },
+
+  "dependencies": {
+    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0",
+    "structuremap": "4.3.0"
+  },
+
+  "frameworks": {
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Runtime": {
+          "type": "build"
+        }
+      }
+    }, 
+    "netstandard1.3": {}
+  }
+}

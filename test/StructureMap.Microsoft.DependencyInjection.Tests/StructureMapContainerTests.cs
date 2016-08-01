@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Specification;
 
-namespace StructureMap.Dnx.Tests
+namespace StructureMap.Microsoft.DependencyInjection.Tests
 {
     public class StructureMapContainerTests : DependencyInjectionSpecificationTests
     {
