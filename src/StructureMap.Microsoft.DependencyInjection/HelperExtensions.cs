@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using StructureMap.Configuration.DSL.Expressions;
+using StructureMap.Graph;
 using StructureMap.Pipeline;
 
 namespace StructureMap
@@ -27,6 +28,11 @@ namespace StructureMap
                 default:
                     throw new ArgumentOutOfRangeException(nameof(lifetime), lifetime, null);
             }
+        }
+
+        public static bool HasFamily<TPlugin>(this PluginGraph graph)
+        {
+            return graph.HasFamily(typeof(TPlugin));
         }
     }
 }
