@@ -58,7 +58,7 @@ public class Startup
         container.Populate(services);
 
         // Finally, make sure we return an IServiceProvider. This makes
-        // DNX use the StructureMap container to resolve its services.
+        // ASP.NET use the StructureMap container to resolve its services.
         return container.GetInstance<IServiceProvider>();
     }
 }
