@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace StructureMap
 {
-    internal sealed class StructureMapServiceProvider : IServiceProvider, ISupportRequiredService
+    public sealed class StructureMapServiceProvider : IServiceProvider, ISupportRequiredService
     {
         public StructureMapServiceProvider(IContainer container)
         {
