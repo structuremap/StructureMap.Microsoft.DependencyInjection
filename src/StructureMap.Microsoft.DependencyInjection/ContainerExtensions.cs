@@ -32,22 +32,35 @@ namespace StructureMap
         /// <param name="descriptors">The service descriptors.</param>
         public static void Populate(this ConfigurationExpression config, IEnumerable<ServiceDescriptor> descriptors)
         {
+            Populate((Registry) config, descriptors);
+        }
+
+        /// <summary>
+        /// Populates the registry using the specified service descriptors.
+        /// </summary>
+        /// <remarks>
+        /// This method should only be called once per container.
+        /// </remarks>
+        /// <param name="registry">The registry.</param>
+        /// <param name="descriptors">The service descriptors.</param>
+        public static void Populate(this Registry registry, IEnumerable<ServiceDescriptor> descriptors)
+        {
             // HACK: We insert this action in order to prevent Populate being called twice on the same container.
-            config.Configure(ThrowIfMarkerInterfaceIsRegistered);
+            registry.Configure(ThrowIfMarkerInterfaceIsRegistered);
 
-            config.For<IMarkerInterface>();
+            registry.For<IMarkerInterface>();
 
-            config.Policies.ConstructorSelector<AspNetConstructorSelector>();
+            registry.Policies.ConstructorSelector<AspNetConstructorSelector>();
 
-            config.For<IServiceProvider>()
+            registry.For<IServiceProvider>()
                 .LifecycleIs(Lifecycles.Container)
                 .Use<StructureMapServiceProvider>();
 
-            config.For<IServiceScopeFactory>()
+            registry.For<IServiceScopeFactory>()
                 .LifecycleIs(Lifecycles.Container)
                 .Use<StructureMapServiceScopeFactory>();
 
-            config.Register(descriptors);
+            registry.Register(descriptors);
         }
 
         private static void ThrowIfMarkerInterfaceIsRegistered(PluginGraph graph)
@@ -58,19 +71,19 @@ namespace StructureMap
             }
         }
 
-        private static void Register(this ConfigurationExpression config, IEnumerable<ServiceDescriptor> descriptors)
+        private static void Register(this IProfileRegistry registry, IEnumerable<ServiceDescriptor> descriptors)
         {
             foreach (var descriptor in descriptors)
             {
-                config.Register(descriptor);
+                registry.Register(descriptor);
             }
         }
 
-        private static void Register(this ConfigurationExpression config, ServiceDescriptor descriptor)
+        private static void Register(this IProfileRegistry registry, ServiceDescriptor descriptor)
         {
             if (descriptor.ImplementationType != null)
             {
-                config.For(descriptor.ServiceType)
+                registry.For(descriptor.ServiceType)
                     .LifecycleIs(descriptor.Lifetime)
                     .Use(descriptor.ImplementationType);
 
@@ -79,14 +92,14 @@ namespace StructureMap
 
             if (descriptor.ImplementationFactory != null)
             {
-                config.For(descriptor.ServiceType)
+                registry.For(descriptor.ServiceType)
                     .LifecycleIs(descriptor.Lifetime)
                     .Use(descriptor.CreateFactory());
 
                 return;
             }
 
-            config.For(descriptor.ServiceType)
+            registry.For(descriptor.ServiceType)
                 .LifecycleIs(descriptor.Lifetime)
                 .Use(descriptor.ImplementationInstance);
         }
