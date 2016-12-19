@@ -1,4 +1,4 @@
-# StructureMap integration with ASP.NET Core [![Build status](https://ci.appveyor.com/api/projects/status/tpk77374afp3dk8v?svg=true)](https://ci.appveyor.com/project/khellang/structuremap-dnx)
+# StructureMap integration for ASP.NET Core [![Build status](https://ci.appveyor.com/api/projects/status/tpk77374afp3dk8v?svg=true)](https://ci.appveyor.com/project/khellang/structuremap-dnx)
 
 This repository contains the source of two NuGet packages:
 
