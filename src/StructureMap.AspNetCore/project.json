@@ -1,0 +1,40 @@
+﻿{
+  "version": "1.0.0",
+
+  "description": "StructureMap.AspNetCore",
+  "authors": ["khellang"],
+
+  "buildOptions": {
+    "warningsAsErrors": true,
+    "nowarn": [ "CS1591" ],
+    "xmlDoc": true
+  },
+
+  "packOptions": {
+    "tags": ["StructureMap", "Microsoft", "Dependency Injection", "DI", "IoC", "AspNetCore"],
+
+    "projectUrl": "https://github.com/structuremap/StructureMap.Microsoft.DependencyInjection",
+    "licenseUrl": "https://github.com/structuremap/StructureMap.Microsoft.DependencyInjection/blob/master/LICENSE",
+
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/structuremap/StructureMap.Microsoft.DependencyInjection"
+    }
+  },
+
+  "dependencies": {
+    "StructureMap.Microsoft.DependencyInjection": { "target": "project" },
+    "Microsoft.AspNetCore.Hosting.Abstractions": "1.1.0" 
+  },
+
+  "frameworks": {
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Runtime": {
+          "type": "build"
+        }
+      }
+    }, 
+    "netstandard1.3": {}
+  }
+}
