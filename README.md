@@ -11,6 +11,8 @@ These packages provide integration with ASP.NET Core and the built-in container 
 
 Adds integration with the ASP.NET Core hosting mechanism.
 
+> :warning: For this integration package to work properly, you need version 1.1 of ASP.NET Core
+
 ### Installation
 
 Add `StructureMap.AspNetCore` to your **project.json**:
@@ -56,12 +58,12 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-		// Configure the ASP.NET specific stuff.
+        // Configure the ASP.NET specific stuff.
     }
 
     public void ConfigureContainer(Registry registry)
     {
-		// Use StructureMap-specific APIs to register services in the registry.
+        // Use StructureMap-specific APIs to register services in the registry.
     }
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
