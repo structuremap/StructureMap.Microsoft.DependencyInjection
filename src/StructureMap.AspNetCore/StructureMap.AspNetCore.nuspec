@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/dougkwilson/StructureMap.Microsoft.DependencyInjection/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/dougkwilson/StructureMap.Microsoft.DependencyInjection</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/provisiondata/Provision.AspNet.StructureMap/master/src/Provision.AspNet.StructureMap/favicon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Thinking is the hardest work there is, which is probably the reason why so few engage in it. - Henry Ford</releaseNotes>
+    <copyright>Copyright (c) 2015 Kristian Hellang</copyright>
+  </metadata>
+</package>

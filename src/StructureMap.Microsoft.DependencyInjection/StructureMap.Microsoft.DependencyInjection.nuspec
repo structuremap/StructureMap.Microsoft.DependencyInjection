@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<package>
+	<metadata>
+		<id>$id$</id>
+		<version>$version$</version>
+		<title>$title$</title>
+		<authors>$author$</authors>
+		<owners>$author$</owners>
+		<licenseUrl>https://github.com/dougkwilson/StructureMap.Microsoft.DependencyInjection/blob/master/LICENSE</licenseUrl>
+		<projectUrl>https://github.com/dougkwilson/StructureMap.Microsoft.DependencyInjection</projectUrl>
+		<iconUrl>https://raw.githubusercontent.com/provisiondata/Provision.AspNet.StructureMap/master/src/Provision.AspNet.StructureMap/favicon.ico</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>$description$</description>
+		<releaseNotes>
+			The best preparation for tomorrow is doing your best today. - H. Jackson Brown, Jr.
+		</releaseNotes>
+		<copyright>Copyright (c) 2015 Kristian Hellang</copyright>
+	</metadata>
+</package>
