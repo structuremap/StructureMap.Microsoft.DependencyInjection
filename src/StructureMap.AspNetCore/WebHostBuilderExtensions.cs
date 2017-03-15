@@ -13,5 +13,10 @@ namespace StructureMap.AspNetCore
         {
             return builder.ConfigureServices(services => services.AddStructureMap(registry));
         }
+
+        public static IWebHostBuilder UseStructureMap(this IWebHostBuilder builder, IContainer container)
+        {
+           return builder.ConfigureServices(services => services.AddStructureMap(container));
+        }
     }
 }

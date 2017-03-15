@@ -13,5 +13,10 @@ namespace StructureMap
         {
             return services.AddSingleton<IServiceProviderFactory<Registry>>(new StructureMapServiceProviderFactory(registry));
         }
+
+        public static IServiceCollection AddStructureMap(this IServiceCollection services, IContainer container)
+        {
+            return services.AddSingleton<IServiceProviderFactory<IContainer>>(new StructureMapContainerServiceProviderFactory(container));
+        }
     }
 }

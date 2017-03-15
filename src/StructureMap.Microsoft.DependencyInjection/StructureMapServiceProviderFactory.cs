@@ -28,4 +28,29 @@ namespace StructureMap
             return new StructureMapServiceProvider(container);
         }
     }
+
+
+    public class StructureMapContainerServiceProviderFactory : IServiceProviderFactory<IContainer>
+    {
+        public StructureMapContainerServiceProviderFactory(IContainer container)
+        {
+            Container = container;
+        }
+
+        private IContainer Container { get; }
+
+        public IContainer CreateBuilder(IServiceCollection services)
+        {
+            var container = Container ?? new Container();
+
+            container.Populate(services);
+
+            return container;
+        }
+
+        public IServiceProvider CreateServiceProvider(IContainer container)
+        {
+            return new StructureMapServiceProvider(container);
+        }
+    }
 }
