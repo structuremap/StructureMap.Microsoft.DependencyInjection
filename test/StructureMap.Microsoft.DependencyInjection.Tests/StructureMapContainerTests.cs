@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Specification;
 using Microsoft.Extensions.DependencyInjection.Specification.Fakes;
-using StructureMap.Graph;
 using Xunit;
 
 namespace StructureMap.Microsoft.DependencyInjection.Tests

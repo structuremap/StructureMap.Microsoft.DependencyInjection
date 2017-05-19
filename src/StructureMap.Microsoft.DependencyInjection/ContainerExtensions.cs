@@ -23,19 +23,6 @@ namespace StructureMap
         }
 
         /// <summary>
-        /// Populates the container using the specified service descriptors.
-        /// </summary>
-        /// <remarks>
-        /// This method should only be called once per container.
-        /// </remarks>
-        /// <param name="config">The configuration.</param>
-        /// <param name="descriptors">The service descriptors.</param>
-        public static void Populate(this ConfigurationExpression config, IEnumerable<ServiceDescriptor> descriptors)
-        {
-            Populate((Registry) config, descriptors);
-        }
-
-        /// <summary>
         /// Populates the registry using the specified service descriptors.
         /// </summary>
         /// <remarks>
@@ -43,7 +30,7 @@ namespace StructureMap
         /// </remarks>
         /// <param name="registry">The registry.</param>
         /// <param name="descriptors">The service descriptors.</param>
-        public static void Populate(this Registry registry, IEnumerable<ServiceDescriptor> descriptors)
+        public static void Populate(this IRegistry registry, IEnumerable<ServiceDescriptor> descriptors)
         {
             // HACK: We insert this action in order to prevent Populate being called twice on the same container.
             registry.Configure(ThrowIfMarkerInterfaceIsRegistered);

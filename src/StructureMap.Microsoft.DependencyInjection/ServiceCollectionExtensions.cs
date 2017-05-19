@@ -9,9 +9,9 @@ namespace StructureMap
             return AddStructureMap(services, registry: null);
         }
 
-        public static IServiceCollection AddStructureMap(this IServiceCollection services, Registry registry)
+        public static IServiceCollection AddStructureMap(this IServiceCollection services, IRegistry registry)
         {
-            return services.AddSingleton<IServiceProviderFactory<Registry>>(new StructureMapServiceProviderFactory(registry));
+            return services.AddSingleton<IServiceProviderFactory<IRegistry>>(new StructureMapServiceProviderFactory(registry));
         }
     }
 }
