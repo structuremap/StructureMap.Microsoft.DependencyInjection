@@ -33,6 +33,7 @@ create a StructureMap `Registry` and optionally let the user configure it using 
 ```csharp
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using StructureMap.AspNetCore;
 
 public class Program
 {
