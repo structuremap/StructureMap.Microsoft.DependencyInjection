@@ -12,6 +12,7 @@ namespace StructureMap
         public ConstructorInfo Find(Type pluggedType, DependencyCollection dependencies, PluginGraph graph) =>
             pluggedType.GetTypeInfo()
                 .DeclaredConstructors
+                .Where(ctor => ctor.IsConstructor && !ctor.IsPrivate) // IsConstructor is false for static constructors
                 .Select(ctor => new { Constructor = ctor, Parameters = ctor.GetParameters() })
                 .Where(x => x.Parameters.All(param => graph.HasFamily(param.ParameterType) || dependencies.Any(dep => dep.Type == param.ParameterType)))
                 .OrderByDescending(x => x.Parameters.Length)
