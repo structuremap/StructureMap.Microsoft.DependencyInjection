@@ -28,6 +28,12 @@ function Install-Dotnet
   }
 }
 
+$branch = @{ $true = $env:APPVEYOR_REPO_BRANCH; $false = $(git symbolic-ref --short -q HEAD) }[$env:APPVEYOR_REPO_BRANCH -ne $NULL];
+$revision = @{ $true = "{0:00000}" -f [convert]::ToInt32("0" + $env:APPVEYOR_BUILD_NUMBER, 10); $false = "local" }[$env:APPVEYOR_BUILD_NUMBER -ne $NULL]; 
+$suffix = @{ $true = ""; $false = "$($branch.Substring(0, [math]::Min(10,$branch.Length)))-$revision"}[$branch -eq "master" -and $revision -ne "local"]
+$commitHash = $(git rev-parse --short HEAD)
+$buildSuffix = @{ $true = "$($suffix)-$($commitHash)"; $false = "$($branch)-$($commitHash)" }[$suffix -ne ""]
+
 function Remove-PathVariable
 {
   [cmdletbinding()]
@@ -57,8 +63,8 @@ function Test-Project
 function Pack-Project
 {
     param([string] $ProjectPath)
-    $revision = @{ $true = "{0:00000}" -f [convert]::ToInt32("0" + $env:APPVEYOR_BUILD_NUMBER, 10); $false = "local" }[$env:APPVEYOR_BUILD_NUMBER -ne $NULL]; 
-    & dotnet pack -v minimal -c Release --output ..\packages ("""" + $ProjectPath + """") --version-suffix=$revision --no-build
+    & dotnet build -c Release --version-suffix=$buildSuffix
+    & dotnet pack -c Release --include-symbols -o ..\..\packages --version-suffix=$suffix --no-build
     if($LASTEXITCODE -ne 0) { exit 1 }
 }
 
@@ -67,6 +73,10 @@ function Pack-Project
 ########################
 
 Push-Location $PSScriptRoot
+
+if (Test-Path .\packages) {
+    Remove-Item .\packages -Force -Recurse
+}
 
 # Install Dotnet CLI
 Install-Dotnet
