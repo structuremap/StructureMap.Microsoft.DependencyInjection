@@ -57,7 +57,8 @@ function Test-Project
 function Pack-Project
 {
     param([string] $ProjectPath)
-    & dotnet pack -v minimal -c Release --output packages ("""" + $ProjectPath + """")
+    $revision = @{ $true = "{0:00000}" -f [convert]::ToInt32("0" + $env:APPVEYOR_BUILD_NUMBER, 10); $false = "local" }[$env:APPVEYOR_BUILD_NUMBER -ne $NULL]; 
+    & dotnet pack -v minimal -c Release --output ..\packages ("""" + $ProjectPath + """") --version-suffix=$revision --no-build
     if($LASTEXITCODE -ne 0) { exit 1 }
 }
 
