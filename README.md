@@ -4,7 +4,7 @@
 This repository contains the source of two NuGet packages:
 
  - StructureMap.AspNetCore
- - StructureMap.Microsoft.DependencyInjection
+ - StructureMap.Microsoft.DependencyInjection (formerly known as StructureMap.Dnx)
 
 These packages provide integration with ASP.NET Core and the built-in container on different levels.
 
@@ -16,12 +16,12 @@ Adds integration with the ASP.NET Core hosting mechanism.
 
 ### Installation
 
-Add `StructureMap.AspNetCore` to your **project.json**:
+Add `StructureMap.AspNetCore` to your project:
 
 ```json
-"dependencies": {
-  "StructureMap.AspNetCore": "<version>"
-}
+<ItemGroup>
+  <PackageReference Include="StructureMap.AspNetCore" Version"<version>" />
+</ItemGroup>
 ```
 
 ### Usage
@@ -77,18 +77,16 @@ public class Startup
 
 ## StructureMap.Microsoft.DependencyInjection
 
-(Formerly known as StructureMap.Dnx)
-
 Adds StructureMap support for [Microsoft.Extensions.DependencyInjection](https://github.com/aspnet/DependencyInjection)
 
 ### Installation
 
-Add `StructureMap.Microsoft.DependencyInjection` to your **project.json**:
+Add `StructureMap.Microsoft.DependencyInjection` to your project:
 
 ```json
-"dependencies": {
-  "StructureMap.Microsoft.DependencyInjection": "<version>"
-}
+<ItemGroup>
+  <PackageReference Include="StructureMap.Microsoft.DependencyInjection" Version"<version>" />
+</ItemGroup>
 ```
 
 ### Usage
