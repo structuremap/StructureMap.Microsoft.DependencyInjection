@@ -1,6 +1,6 @@
-os: Visual Studio 2015
+os: Visual Studio 2017
 
-version: 0.4.0-rc2-{build}
+version: 1.3.1-ci.{build}
 configuration: Release
 cache: C:\Users\appveyor\.nuget\packages
 
@@ -10,14 +10,11 @@ nuget:
 pull_requests:
   do_not_increment_build_number: true
 
-install:
-- set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
-
 build_script:
 - ps: .\build.ps1
 
 artifacts:
-- path: artifacts\packages\**\*.nupkg
+- path: **\*.nupkg
   name: MyGet
   
 build:
