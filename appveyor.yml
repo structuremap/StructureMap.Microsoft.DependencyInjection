@@ -14,7 +14,7 @@ build_script:
 - ps: .\build.ps1
 
 artifacts:
-- path: **\*.nupkg
+- path: .\**\*.nupkg
   name: MyGet
   
 build:
