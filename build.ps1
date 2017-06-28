@@ -63,8 +63,8 @@ function Test-Project
 function Pack-Project
 {
     param([string] $ProjectPath)
-    & dotnet build -c Release --version-suffix=$buildSuffix
-    & dotnet pack -c Release --include-symbols -o ..\..\packages --version-suffix=$suffix --no-build
+    & dotnet build -c Release --version-suffix=$buildSuffix  ("""" + $ProjectPath + """")
+    & dotnet pack -c Release --include-symbols -o ..\..\packages --version-suffix=$suffix --no-build  ("""" + $ProjectPath + """")
     if($LASTEXITCODE -ne 0) { exit 1 }
 }
 
