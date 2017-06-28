@@ -21,3 +21,7 @@ build:
   verbosity: minimal
 
 test: off
+
+skip_commits:
+  files:
+    - '**\*.md'
