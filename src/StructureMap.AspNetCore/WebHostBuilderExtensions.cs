@@ -9,7 +9,7 @@ namespace StructureMap.AspNetCore
             return UseStructureMap(builder, registry: null);
         }
 
-        public static IWebHostBuilder UseStructureMap(this IWebHostBuilder builder, Registry registry)
+        public static IWebHostBuilder UseStructureMap(this IWebHostBuilder builder, IRegistry registry)
         {
             return builder.ConfigureServices(services => services.AddStructureMap(registry));
         }

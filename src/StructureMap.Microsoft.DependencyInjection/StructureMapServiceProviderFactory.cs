@@ -1,18 +1,19 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
+using StructureMap.Graph;
 
 namespace StructureMap
 {
-    public class StructureMapServiceProviderFactory : IServiceProviderFactory<Registry>
+    public class StructureMapServiceProviderFactory : IServiceProviderFactory<IRegistry>
     {
-        public StructureMapServiceProviderFactory(Registry registry)
+        public StructureMapServiceProviderFactory(IRegistry registry)
         {
             Registry = registry;
         }
 
-        private Registry Registry { get; }
+        private IRegistry Registry { get; }
 
-        public Registry CreateBuilder(IServiceCollection services)
+        public IRegistry CreateBuilder(IServiceCollection services)
         {
             var registry = Registry ?? new Registry();
 
@@ -21,7 +22,7 @@ namespace StructureMap
             return registry;
         }
 
-        public IServiceProvider CreateServiceProvider(Registry registry)
+        public IServiceProvider CreateServiceProvider(IRegistry registry)
         {
             var container = new Container(registry);
 
