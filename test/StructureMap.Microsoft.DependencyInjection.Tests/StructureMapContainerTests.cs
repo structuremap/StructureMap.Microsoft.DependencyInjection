@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Specification;
 using Microsoft.Extensions.DependencyInjection.Specification.Fakes;
-using StructureMap.Graph;
 using Xunit;
 
 namespace StructureMap.Microsoft.DependencyInjection.Tests
@@ -19,8 +17,10 @@ namespace StructureMap.Microsoft.DependencyInjection.Tests
             return container.GetInstance<IServiceProvider>();
         }
 
-        [Fact]
-        public void PopulatingTheContainerMoreThanOnceThrows()
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void PopulatingTheContainerMoreThanOnceThrows(bool checkDuplicateCalls)
         {
             var services = new ServiceCollection();
 
@@ -30,7 +30,10 @@ namespace StructureMap.Microsoft.DependencyInjection.Tests
 
             container.Configure(config => config.Populate(services));
 
-            Assert.Throws<InvalidOperationException>(() => container.Populate(services));
+            if (checkDuplicateCalls)
+            {
+                Assert.Throws<InvalidOperationException>(() => container.Populate(services, checkDuplicateCalls));
+            }
         }
     }
 }
