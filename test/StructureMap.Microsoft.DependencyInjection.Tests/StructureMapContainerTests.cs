@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.DependencyInjection.Specification;
 using Microsoft.Extensions.DependencyInjection.Specification.Fakes;
+using Microsoft.Extensions.Options;
 using Xunit;
 
 namespace StructureMap.Microsoft.DependencyInjection.Tests
@@ -60,6 +61,33 @@ namespace StructureMap.Microsoft.DependencyInjection.Tests
             Assert.NotEmpty(logger.Factory.Providers);
         }
 
+        [Fact]
+        public void CanResolveIOptionsTFromChildContainer()
+        {
+
+            ServiceCollection services = new ServiceCollection();
+
+            StructureMap.Container container = new StructureMap.Container();
+            container.Populate(services);
+
+            var childContainer = container.CreateChildContainer();
+            childContainer.Configure((a) =>
+            {
+                var childServices = new ServiceCollection();
+                childServices.AddOptions();
+                childServices.Configure<MyOptions>((b) =>
+                {
+                    b.Prop = true;
+                });
+                a.Populate(childServices);
+            });
+
+            IServiceProvider sp = childContainer.GetInstance<IServiceProvider>();
+            IOptions<MyOptions> options = sp.GetRequiredService<IOptions<MyOptions>>();
+            Assert.True(options.Value?.Prop);
+
+        }
+
         private interface ILoggerProvider { }
 
         private class TestLoggerProvider : ILoggerProvider { }
@@ -96,6 +124,11 @@ namespace StructureMap.Microsoft.DependencyInjection.Tests
             }
 
             public ILoggerFactory Factory { get; }
+        }
+
+        private class MyOptions
+        {
+            public bool Prop { get; internal set; }
         }
     }
 }
