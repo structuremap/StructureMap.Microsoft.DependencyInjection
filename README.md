@@ -1,3 +1,5 @@
+# :warning: As [StructureMap has been sunsetted](https://jeremydmiller.com/2018/01/29/sunsetting-structuremap/), it's recommended to move to [Lamar](https://jasperfx.github.io/lamar/), StructureMap's successor, which is more compatible with ASP.NET Core's DI system. :warning:
+
 # StructureMap integration for ASP.NET Core [![Build status](https://ci.appveyor.com/api/projects/status/i8r7pb6kqcvj9vdq/branch/master?svg=true)](https://ci.appveyor.com/project/khellang/structuremap-microsoft-dependencyinjection/branch/master)
 
 
