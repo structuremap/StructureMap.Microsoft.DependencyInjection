@@ -12,8 +12,6 @@ These packages provide integration with ASP.NET Core and the built-in container 
 
 Adds integration with the ASP.NET Core hosting mechanism.
 
-> :warning: For this integration package to work properly, you need version 1.1 of ASP.NET Core
-
 ### Installation
 
 Add `StructureMap.AspNetCore` to your project:
@@ -36,20 +34,17 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using StructureMap.AspNetCore;
 
-public class Program
+public static class Program
 {
     public static void Main(string[] args)
     {
-        var host = new WebHostBuilder()
-            .UseContentRoot(Directory.GetCurrentDirectory())
-            .UseStartup<Startup>()
-            .UseIISIntegration()
-            .UseStructureMap()
-            .UseKestrel()
-            .Build();
-
-        host.Run();
+        CreateWebHostBuilder(args).Build().Run();
     }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStructureMap() // Add support for StructureMap
+            .UseStartup<Startup>();
 }
 ```
 
