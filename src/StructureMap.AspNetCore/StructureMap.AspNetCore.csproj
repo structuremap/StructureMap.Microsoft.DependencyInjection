@@ -2,7 +2,15 @@
   <PropertyGroup>
     <Description>StructureMap.AspNetCore</Description>
     <PackageTags>$(PackageTags);AspNetCore</PackageTags>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\StructureMap.Microsoft.DependencyInjection\StructureMap.Microsoft.DependencyInjection.csproj" />
