@@ -20,7 +20,14 @@ namespace StructureMap
         public object GetService(Type serviceType)
         {
             // TryGetInstance doesn't resolve instances of concrete types
-            return Container.GetInstance(serviceType);
+            try
+            {
+                return Container.GetInstance(serviceType);
+            }
+            catch (StructureMapConfigurationException)
+            {
+                return null;
+            }
         }
 
         public object GetRequiredService(Type serviceType)
