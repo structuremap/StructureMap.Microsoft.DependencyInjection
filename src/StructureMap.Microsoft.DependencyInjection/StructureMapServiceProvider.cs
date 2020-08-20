@@ -19,14 +19,8 @@ namespace StructureMap
 
         public object GetService(Type serviceType)
         {
-            if (serviceType.IsGenericEnumerable())
-            {
-                // Ideally we'd like to call TryGetInstance here as well,
-                // but StructureMap does't like it for some weird reason.
-                return GetRequiredService(serviceType);
-            }
-
-            return Container.TryGetInstance(serviceType);
+            // TryGetInstance doesn't resolve instances of concrete types
+            return Container.GetInstance(serviceType);
         }
 
         public object GetRequiredService(Type serviceType)
