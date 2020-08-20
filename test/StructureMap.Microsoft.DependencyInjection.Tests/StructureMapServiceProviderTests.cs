@@ -24,6 +24,16 @@ namespace StructureMap.Microsoft.DependencyInjection.Tests
             Assert.IsType<BlueWidget>(provider.GetRequiredService(typeof(IWidget)));
         }
 
+        [Fact]
+        public void get_service_without_registered_types_return_null()
+        {
+            var root = new Container();
+            
+            var provider = new StructureMapServiceProvider(root);
+            Assert.Same(provider.Container, root);
+            Assert.Null(provider.GetService(typeof(IWidget)));
+        }
+
         public interface IWidget { }
 
         public class BlueWidget : IWidget { }
