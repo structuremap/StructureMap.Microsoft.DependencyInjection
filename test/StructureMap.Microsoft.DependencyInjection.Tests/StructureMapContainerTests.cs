@@ -17,6 +17,7 @@ namespace StructureMap.Microsoft.DependencyInjection.Tests
         {
             "ResolvesMixedOpenClosedGenericsAsEnumerable",
             "DisposesInReverseOrderOfCreation",
+            "DisposingScopeDisposesService"
         };
 
         protected override IServiceProvider CreateServiceProvider(IServiceCollection services)
@@ -75,6 +76,52 @@ namespace StructureMap.Microsoft.DependencyInjection.Tests
             Assert.NotNull(logger);
             Assert.NotNull(logger.Factory);
             Assert.NotEmpty(logger.Factory.Providers);
+        }
+
+        [Fact]
+        public void StructureMap_DisposingScopeDisposesService()
+        {
+            // StructureMap does not seem to dispose Transient services unless they were created inside of a scope.
+            // See also:
+            // Lamar - https://github.com/JasperFx/lamar/blob/adc805705daae241ee1f8bfcd7a46f73530caa83/documentation/documentation/ioc/disposing.md#transients
+            // Original tests here https://github.com/aspnet/DependencyInjection/blob/930037a4f8b74a9c1e30d881507a05bea0a7c2e0/src/DI.Specification.Tests/DependencyInjectionSpecificationTests.cs#L406
+
+            var collection = new ServiceCollection();
+            collection.AddSingleton<IFakeSingletonService, FakeService>();
+            collection.AddScoped<IFakeScopedService, FakeService>();
+            collection.AddTransient<IFakeService, FakeService>();
+
+            var provider = CreateServiceProvider(collection);
+            FakeService disposableService;
+            FakeService transient1;
+            FakeService transient2;
+            FakeService singleton;
+
+            // Act and Assert
+            using (var scope = provider.CreateScope())
+            {
+                disposableService = (FakeService)scope.ServiceProvider.GetService<IFakeScopedService>();
+                transient1 = (FakeService)scope.ServiceProvider.GetService<IFakeService>();
+                transient2 = (FakeService)scope.ServiceProvider.GetService<IFakeService>();
+                singleton = (FakeService)scope.ServiceProvider.GetService<IFakeSingletonService>();
+
+                Assert.False(disposableService.Disposed);
+                Assert.False(transient1.Disposed);
+                Assert.False(transient2.Disposed);
+                Assert.False(singleton.Disposed);
+            }
+
+            Assert.True(disposableService.Disposed);
+            Assert.True(transient1.Disposed);
+            Assert.True(transient2.Disposed);
+            Assert.False(singleton.Disposed);
+
+            var disposableProvider = provider as IDisposable;
+            if (disposableProvider != null)
+            {
+                disposableProvider.Dispose();
+                Assert.True(singleton.Disposed);
+            }
         }
 
         private interface ILoggerProvider { }

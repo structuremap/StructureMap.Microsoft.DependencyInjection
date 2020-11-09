@@ -4,9 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace StructureMap
 {
-    public sealed class StructureMapServiceProvider : IServiceProvider, ISupportRequiredService
+    public sealed class StructureMapServiceProvider : IServiceProvider, ISupportRequiredService, IDisposable
     {
         private readonly Stack<IContainer> _containers = new Stack<IContainer>();
+        private bool _isDisposing = false;
 
         public StructureMapServiceProvider(IContainer container)
         {
@@ -52,6 +53,21 @@ namespace StructureMap
             {
                 var child = _containers.Pop();
                 child.Dispose();
+            }
+        }
+
+        public void Dispose()
+        {
+            if (_isDisposing)
+            {
+                return;
+            }
+
+            _isDisposing = true;
+
+            foreach (var container in _containers)
+            {
+                container.Dispose();
             }
         }
     }
